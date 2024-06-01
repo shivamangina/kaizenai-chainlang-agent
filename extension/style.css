@@ -1,0 +1,8 @@
+/* Add custom styles to enhance the chat UI */
+#chatHistory div {
+    margin-bottom: 8px;
+}
+
+#sendMessageButton:hover {
+    background-color: #1F2937;
+}
