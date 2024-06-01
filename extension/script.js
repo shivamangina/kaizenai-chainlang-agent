@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       // Simulate AI response (dummy response)
-      // const aiResponse = "Hi Welcome to AI Mayhem";
+      // const aiResponse = "Hi Welcome to Kaisen.ai";
       // // Add AI's response to chat history
       // addMessageToChatHistory(aiResponse, true);
     }

@@ -1,7 +1,7 @@
 {
-  "name": "AI Mayhem",
+  "name": "Kaisen.ai",
   "version": "1.0.3",
-  "description": "AI Mayhem is a simple extension",
+  "description": "Kaisen.ai is a simple extension",
   "permissions": [
     "tabs",
     "activeTab",
@@ -12,9 +12,14 @@
   },
   "manifest_version": 3,
   "author": "novobloc",
-  "action":{
-      "default_popup": "index.html",
-      "default_title": "AI Mayhem"
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Kaisen.ai",
+    "default_icon": {
+      "16": "icons/icon16_1.png",
+      "48": "icons/icon48_1.png",
+      "128": "icons/icon128_1.png"
+    }
   },
   "content_scripts": [
     {
@@ -22,5 +27,10 @@
       "js": ["content.js"],
       "run_at": "document_end"
     }
-  ]
+  ],
+  "icons": {
+    "16": "icons/icon16_1.png",
+    "48": "icons/icon48_1.png",
+    "128": "icons/icon128_1.png"
+  }
 }
