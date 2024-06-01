@@ -95,17 +95,28 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Event listener for sending messages
-  sendMessageButton.addEventListener("click", function () {
+  sendMessageButton.addEventListener("click", sendMessage);
+  
+  messageInputElement.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        sendMessage();
+    }
+});
+
+function sendMessage() {
     const message = messageInputElement.value.trim();
     if (message !== "") {
-      // Add user's message to chat history
-      addMessageToChatHistory(message, false);
-      // Clear input field
-      messageInputElement.value = "";
-      // Simulate AI response (dummy response)
-      const aiResponse = "Hi Welcome to AI Mayhem";
-      // Add AI's response to chat history
-      addMessageToChatHistory(aiResponse, true);
+        // Add user's message to chat history
+        addMessageToChatHistory(message, false);
+        // Clear input field
+        messageInputElement.value = "";
+        // Simulate AI response (dummy response)
+        const aiResponse = "Hi Welcome to AI Mayhem";
+        // Add AI's response to chat history
+        addMessageToChatHistory(aiResponse, true);
     }
-  });
+}
+
 });
+
+
