@@ -10,7 +10,7 @@ load_dotenv()
 llm = ChatOpenAI(temperature=0, model="gpt-4o")
 
 
-def page_summerize(url: str, question: str):
+def page_summarize(url: str, question: str):
 
     #    template = Template('${question},based on ${url}')
     simple_reader_tool = SimpleReaderTool()

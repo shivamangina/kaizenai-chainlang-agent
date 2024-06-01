@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from agent import page_summerize
+from agent import page_summarize
 
 app = FastAPI()
 
@@ -10,8 +10,8 @@ def root():
     return {"Hello": "World"}
 
 
-@app.post("/items")
-def summerize(url: str, question: str):
-    result = page_summerize(url=url,
+@app.post("/summarize")
+def summarize(url: str, question: str):
+    result = page_summarize(url=url,
                             question=question)
     return result
