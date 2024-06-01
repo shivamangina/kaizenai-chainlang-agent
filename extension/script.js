@@ -82,11 +82,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to add a message to the chat history
   function addMessageToChatHistory(message, isAi = false) {
     const messageElement = document.createElement("div");
-    messageElement.className = "col-start-1 col-end-8 rounded-lg p-3"
+    messageElement.className = "col-start-1 col-end-8 rounded-lg p-3";
     messageElement.innerHTML = `
     <div class="flex ${!isAi ? "flex-row-reverse" : "flex-row"} ">
-        <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full ${!isAi ? "bg-pink-200" : "bg-red-300"}">${isAi ? "A" : "U"}</div>
-        <div class="relative ${isAi ? "ml-3 " : "mr-3 "} text-sm bg-white py-2 px-4 shadow rounded-xl">${message}</div>
+        <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full ${
+          !isAi ? "bg-pink-200" : "bg-red-300"
+        }">${isAi ? "A" : "U"}</div>
+        <div class="relative ${
+          isAi ? "ml-3 " : "mr-3 "
+        } text-sm bg-white py-2 px-4 shadow rounded-xl">${message}</div>
     </div>
 `;
 
@@ -96,27 +100,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Event listener for sending messages
   sendMessageButton.addEventListener("click", sendMessage);
-  
-  messageInputElement.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        sendMessage();
-    }
-});
 
-function sendMessage() {
+  messageInputElement.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      sendMessage();
+    }
+  });
+
+  async function sendMessage() {
     const message = messageInputElement.value.trim();
     if (message !== "") {
-        // Add user's message to chat history
-        addMessageToChatHistory(message, false);
-        // Clear input field
-        messageInputElement.value = "";
-        // Simulate AI response (dummy response)
-        const aiResponse = "Hi Welcome to AI Mayhem";
-        // Add AI's response to chat history
-        addMessageToChatHistory(aiResponse, true);
+      // Add user's message to chat history
+      addMessageToChatHistory(message, false);
+      // Clear input field
+      messageInputElement.value = "";
+
+      try {
+        const response = await fetch("http://127.0.0.1:8000/send_message/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text: message }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          // Add AI's response to chat history
+          addMessageToChatHistory(data.response, true);
+        } else {
+          console.error("Failed to send message:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+
+      // Simulate AI response (dummy response)
+      // const aiResponse = "Hi Welcome to AI Mayhem";
+      // // Add AI's response to chat history
+      // addMessageToChatHistory(aiResponse, true);
     }
-}
-
+  }
 });
-
-
