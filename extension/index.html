@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Mayhem</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+        <h2 class="text-2xl font-bold text-center mb-4">AI Mayhem</h2>
+        <div class="flex flex-col items-center">
+            <div class="mb-4 w-full">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Date:</label>
+                <div id="date" class="p-2 border border-gray-300 rounded-md w-full text-center"></div>
+            </div>
+            <div class="mb-4 w-full">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Country:</label>
+                <div id="areaName" class="p-2 border border-gray-300 rounded-md w-full text-center"></div>
+            </div>
+            <button id="tryNowButton" class="bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800">
+                Try Now
+            </button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

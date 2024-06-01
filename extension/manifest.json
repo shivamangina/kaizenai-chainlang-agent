@@ -1,0 +1,18 @@
+{
+  "name": "AI Mayhem",
+  "version": "1.0.1",
+  "description": "AI Mayhem is a simple extension",
+  "permissions": [
+    "tabs",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "manifest_version": 3,
+  "author": "novobloc",
+  "action":{
+      "default_popup": "index.html",
+      "default_title": "AI Mayhem"
+  }
+}
