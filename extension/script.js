@@ -80,15 +80,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const sendMessageButton = document.getElementById("sendMessageButton");
 
   // Function to add a message to the chat history
-  function addMessageToChatHistory(message, isUser = false) {
+  function addMessageToChatHistory(message, isAi = false) {
     const messageElement = document.createElement("div");
-    messageElement.className = isUser
-      ? "col-start-1 col-end-8 p-3 rounded-lg"
-      : "col-start-6 col-end-13 p-3 rounded-lg";
+    messageElement.className = "col-start-1 col-end-8 rounded-lg p-3"
     messageElement.innerHTML = `
-    <div class="flex flex-row ${!isUser ? "align-left" : ""} ">
-        <div class="flex items-center justify-center h-10 w-10 rounded-full ${!isUser ? "bg-indigo-500" : "bg-red-500"} flex-shrink-0">${isUser ? "U" : "A"}</div>
-        <div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">${message}</div>
+    <div class="flex ${!isAi ? "flex-row-reverse" : "flex-row"} ">
+        <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full ${!isAi ? "bg-pink-200" : "bg-red-300"}">${isAi ? "A" : "U"}</div>
+        <div class="relative ${isAi ? "ml-3 " : "mr-3 "} text-sm bg-white py-2 px-4 shadow rounded-xl">${message}</div>
     </div>
 `;
 
@@ -101,13 +99,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const message = messageInputElement.value.trim();
     if (message !== "") {
       // Add user's message to chat history
-      addMessageToChatHistory(message, true);
+      addMessageToChatHistory(message, false);
       // Clear input field
       messageInputElement.value = "";
       // Simulate AI response (dummy response)
       const aiResponse = "Hi Welcome to AI Mayhem";
       // Add AI's response to chat history
-      addMessageToChatHistory(aiResponse, false);
+      addMessageToChatHistory(aiResponse, true);
     }
   });
 });
