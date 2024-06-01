@@ -1,4 +1,4 @@
-# AI Mayhem Chrome Extension
+# Kaisen.ai Chrome Extension
 
 This is a Chrome Extension 
 

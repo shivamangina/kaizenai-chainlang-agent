@@ -1,5 +1,5 @@
 chrome.runtime.onInstalled.addListener(() => {
-    console.log("AI Mayhem Extension Installed");
+    console.log("Kaisen.ai Extension Installed");
   });
   
   chrome.action.onClicked.addListener((tab) => {
@@ -11,7 +11,7 @@ chrome.runtime.onInstalled.addListener(() => {
   
 
   chrome.runtime.onInstalled.addListener(() => {
-    console.log("AI Mayhem Extension Installed");
+    console.log("Kaisen.ai Extension Installed");
   });
   
   chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
